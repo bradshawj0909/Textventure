@@ -1,10 +1,53 @@
 using namespace::std;
 
+int victory()
+{
+    int num;
+    if (int enemy_CurrentHealth = 0)
+        cout << "You have defeated the enemy, Congratulations!" << endl;
+    cout << "Would you like to search the room for items before you continue?" << endl;
+    cout << "Press 1 to search or 2 to continue" << endl;
+    cin >> num;
+        if (num == 1)
+            {
+            cout << "You found a potion!!!" << endl;
+            };
+        if (num == 2)
+        {
+            cout << "You went onwards!!!" << endl;
+        }
+        return 0;
+};
+
 
 int main()
 {
-    cout << "Welcome noble one, through this dungeon lies what you seek."<<endl;
-    cout<<"Your journey will be perilous!"<<endl;
-    cout<<"And the path may seem bleak "<<endl;
-    cout<<"But go forth and be victorious!"<<endl;
-}
+    //Welcome message 
+    cout << "Welcome noble one, through this dungeon lies what you seek." << endl;
+    cout << "Your journey will be perilous!" << endl;
+    cout << "And the path may seem bleak " << endl;
+    cout << "But go forth and be victorious!" << endl;
+    cout << "Press Enter to Continue";
+    cin.ignore();
+
+    cout << "" << endl;
+    cout << "" << endl;
+    cout << "" << endl;
+    //Stage 1 
+    cout << "-------------------------------------------------Stage 1: The beginning-------------------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                         Monster  :O                                    " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "               Player ;)                                                                                                " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+   
+    
+    
+      cout << "" << endl;
+    cout << "" << endl;
+    cout << "" << endl;
+    victory();
