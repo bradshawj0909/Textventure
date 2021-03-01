@@ -1,11 +1,12 @@
 #include <iostream>
-
+using namespace std;
+#include <string>
 int main()
 {
-    cout << "Welcome to the character creation of your super badass dungeon conqueror" <<endl;
-    cout << "Here you will be able to customise your character" <<endl;
-    cout << "You will also be able to roll random stats in strength, charisma, dexterity but that will be later on in the program" <<endl;
-    
+    cout << "Welcome to the character creation of your super badass dungeon conqueror" << endl;
+    cout << "Here you will be able to customise your character" << endl;
+    cout << "You will also be able to roll random stats in strength, charisma, dexterity but that will be later on in the program" << endl;
+
 }
 
 
@@ -32,3 +33,5 @@ public:
     int character_Name;
     int character_Age;
     int character_Height;
+
+};
