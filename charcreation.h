@@ -14,17 +14,17 @@ int main()
 
 
 string characterName;
-cout << "What would you like your characters name to be?: ";
+cout << "What would you like your characters name to be?:";
 cin >> characterName;
 cout << "Your name is: " << characterName;
 
 string age;
-cout << "How old is your character?: ";
+cout << "How old is your character?:";
 cin >> age;
 cout << "Your characters age is: " << age;
 
 string height;
-cout << "How tall do you want your character to be?: ";
+cout << "How tall do you want your character to be?:";
 cin >> height;
 cout << "Your characters height is: " << height;
 
