@@ -1,4 +1,17 @@
-using namespace::std;
+#include <random>
+#include <iostream>
+#include <string>
+using namespace::std;   
+
+//string stageDesc()
+//{
+//    std::string Description[4] = { "Cake", "Toast", "Butter", "Jelly"};
+//   return Description();
+//}
+
+
+
+
 
 int victory()
 {
@@ -34,6 +47,7 @@ int main()
     cout << "" << endl;
     cout << "" << endl;
     //Stage 1 
+
     cout << "-------------------------------------------------Stage 1: The beginning-------------------------------------------------" << endl;
     //cout << stageDesc() << endl;
     cout << "                                                                                                                        " << endl;
@@ -44,10 +58,58 @@ int main()
     cout << "                                                                                                                        " << endl;
     cout << "                                                                                                                        " << endl;
     cout << "                                                                                                                        " << endl;
+
    
-    
-    
-      cout << "" << endl;
+            
+  
+    cout << "" << endl;
     cout << "" << endl;
     cout << "" << endl;
     victory();
+
+
+    void Clear();
+    {
+        cout << string(20, '\n');
+    }
+
+    //Stage 2 
+    cout << "-------------------------------------------------Stage 2: The fun's only just begun -------------------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                         Monster  \ /                                   " << endl;
+    cout << "                                                                                   _                                    " << endl;
+    cout << "               Player ;)                                                                                                " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    victory();
+
+
+    void Clear();
+    {
+        cout << string(20, '\n');
+    }
+
+    //Stage 3
+    cout << "-------------------------------------------------Stage 3: The Rising challenge -------------------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                         Monster  \ __                                  " << endl;
+    cout << "                                                                                   _                                    " << endl;
+    cout << "               Player ;)                                                                                                " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    victory();
+
+    void Clear();
+    {
+        cout << string(20, '\n');
+    }
+
+    cout << "U beat the game"<<endl;
+}
+  
