@@ -28,6 +28,11 @@ cout << "How tall do you want your character to be?:";
 cin >> height;
 cout << "Your characters height is: " << height;
 
+string sex;
+cout << "What sex is your character?:";
+cin >> sex;
+cout << "Your characters height is: " << sex;
+
 class CharacterCreation {
 public:
     int character_Name;
