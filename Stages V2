@@ -1,0 +1,113 @@
+
+int score = 0;
+
+int round_Victory()
+{
+    int num, odds, randscore;
+    if (int enemy_CurrentHealth = 0)
+        cout << "You have defeated the enemy, Congratulations!" << endl;
+    score = score + 25;
+    cout << "Would you like to search the room for extra points before you continue?" << endl;
+    cout << "Press 1 to search or 2 to continue" << endl;
+    cin >> num;
+    odds = rand() % 4+1;
+    if (num == 1)
+    {
+        odds = rand() % 2 + 0;
+        if (odds == 1);
+        {
+            randscore = rand() % 50 + 1;
+            score = randscore + score;
+            cout << "You found " << randscore <<endl;
+        };
+        if (odds == 2)
+        {
+            cout << "You didn't find anything :(" << endl;
+        }
+    
+   
+    };
+    if (num == 2)
+    {
+        cout << "You went onwards!!!" << endl;
+        score = score + 10;
+    }
+    return 0;
+    };
+
+int Won_Game()
+{
+    if (int enemy_CurrentHealth = 0)
+        cout << "You have beaten the final boss!!" << endl;
+        cout << "Congratulations you have won the game!!" << endl;
+        score= score + 100;
+        cout << "Your best score is " << score << "!" << endl;
+        cout << "Play again and try to beat your score!!" << endl;
+        return 0;
+
+}
+
+    
+
+int main()
+{
+    //Welcome message 
+    cout << "Welcome noble one, through this dungeon lies what you seek." << endl;
+    cout << "Your journey will be perilous!" << endl;
+    cout << "And the path may seem bleak " << endl;
+    cout << "But go forth and be victorious!" << endl;
+    cout << "Press Enter to Continue";
+    cin.ignore();
+    //Stage 1 
+    
+
+    cout << "-------------------------------------------------Stage 1: The beginning-------------------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                         Monster  :O                                    " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "               Player ;)                                                                                                " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+
+    
+    round_Victory();
+    cin.ignore();
+
+    //Stage 2 
+    cout << "-------------------------------------------------Stage 2: The fun's only just begun ------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                         Monster    0                                   " << endl;
+    cout << "                                                                                  (:::)                                 " << endl;
+    cout << "               Player ;)                                                            _                                   " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    round_Victory();
+    
+    cin.ignore();
+
+    //Stage 3
+    cout << "-------------------------------------------------Stage 3: The Rising challenge ------------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                     0                                  " << endl;
+    cout << "                                                                         Monster   <:_:>                                " << endl;
+    cout << "                                                                                     _                                  " << endl;
+    cout << "               Player ;)                                                                                                " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+
+    Won_Game();
+    cin.ignore();
+
+    
+    return 0;
+   
+}
+  
