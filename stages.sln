@@ -3,34 +3,37 @@
 #include <string>
 using namespace::std;   
 
-//string stageDesc()
-//{
-//    std::string Description[4] = { "Cake", "Toast", "Butter", "Jelly"};
-//   return Description();
-//}
-
-
-
-
-
-int victory()
+int round_Victory()
 {
-    int num;
+    int num, odds;
     if (int enemy_CurrentHealth = 0)
         cout << "You have defeated the enemy, Congratulations!" << endl;
     cout << "Would you like to search the room for items before you continue?" << endl;
     cout << "Press 1 to search or 2 to continue" << endl;
     cin >> num;
-        if (num == 1)
-            {
-            cout << "You found a potion!!!" << endl;
-            };
-        if (num == 2)
-        {
-            cout << "You went onwards!!!" << endl;
-        }
+    odds = rand() % 4+1;
+    if (num == 1)
+    {
+        odds = rand() % 2 + 1;
+        if (odds == 1) cout << "You found a potion!!!"<<endl;
+        else if (odds == 2)  cout << "You didn't find anything :(" << endl;
+   
+    };
+    if (num == 2)
+    {
+        cout << "You went onwards!!!" << endl;
+    }
+    return 0;
+    };
+
+int Won_Game()
+{
+    if (int enemy_CurrentHealth = 0)
+        cout << "You have beaten the final boss!!" << endl;
+        cout << "Congratulations you have won the game!!" << endl;
         return 0;
-};
+}
+
 
 
 int main()
@@ -42,11 +45,8 @@ int main()
     cout << "But go forth and be victorious!" << endl;
     cout << "Press Enter to Continue";
     cin.ignore();
-
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
     //Stage 1 
+    
 
     cout << "-------------------------------------------------Stage 1: The beginning-------------------------------------------------" << endl;
     //cout << stageDesc() << endl;
@@ -59,57 +59,41 @@ int main()
     cout << "                                                                                                                        " << endl;
     cout << "                                                                                                                        " << endl;
 
-   
-            
+    
+    round_Victory();
   
-    cout << "" << endl;
-    cout << "" << endl;
-    cout << "" << endl;
-    victory();
-
-
-    void Clear();
-    {
-        cout << string(20, '\n');
-    }
 
     //Stage 2 
-    cout << "-------------------------------------------------Stage 2: The fun's only just begun -------------------------------------------------" << endl;
+    cout << "-------------------------------------------------Stage 2: The fun's only just begun ------------------------------------" << endl;
     //cout << stageDesc() << endl;
     cout << "                                                                                                                        " << endl;
     cout << "                                                                                                                        " << endl;
-    cout << "                                                                         Monster  \ /                                   " << endl;
-    cout << "                                                                                   _                                    " << endl;
-    cout << "               Player ;)                                                                                                " << endl;
+    cout << "                                                                         Monster    0                                   " << endl;
+    cout << "                                                                                  (:::)                                 " << endl;
+    cout << "               Player ;)                                                            _                                   " << endl;
     cout << "                                                                                                                        " << endl;
     cout << "                                                                                                                        " << endl;
     cout << "                                                                                                                        " << endl;
-    victory();
-
-
-    void Clear();
-    {
-        cout << string(20, '\n');
-    }
+    round_Victory();
+    
+    
 
     //Stage 3
-    cout << "-------------------------------------------------Stage 3: The Rising challenge -------------------------------------------------" << endl;
+    cout << "-------------------------------------------------Stage 3: The Rising challenge ------------------------------------------" << endl;
     //cout << stageDesc() << endl;
     cout << "                                                                                                                        " << endl;
-    cout << "                                                                                                                        " << endl;
-    cout << "                                                                         Monster  \ __                                  " << endl;
-    cout << "                                                                                   _                                    " << endl;
+    cout << "                                                                                     0                                  " << endl;
+    cout << "                                                                         Monster   <:_:>                                " << endl;
+    cout << "                                                                                     _                                  " << endl;
     cout << "               Player ;)                                                                                                " << endl;
     cout << "                                                                                                                        " << endl;
     cout << "                                                                                                                        " << endl;
     cout << "                                                                                                                        " << endl;
-    victory();
 
-    void Clear();
-    {
-        cout << string(20, '\n');
-    }
+    Won_Game();
+    cin.ignore();
 
-    cout << "U beat the game"<<endl;
+    
+    return 0;
+   
 }
-  
