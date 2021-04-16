@@ -1,0 +1,302 @@
+#pragma once
+#include <iostream>
+#include <cstdlib>
+#include <windows.h>
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+#include <random>
+#include "monster.h"
+#include "menu.h"
+using namespace::std;
+int maxHealth = 100;
+int currentHealth = 100;
+int enemy_MaxHealth = 100;
+int enemy_CurrentHealth = enemy_MaxHealth;
+int enemy_DamageDone = 10;
+int enemy_DamageTaken = 15; //place holders for now but I will inherit from monster.h once I finish. 
+int score = 0; 
+bool attack(int option) {
+    int attackPercentage = rand() % 100;
+    if (option == 1) {
+        if (attackPercentage >= 20) {
+            return true;
+        }
+    }
+    if (option == 2) {
+        if (attackPercentage >= 40) {
+            return true;
+        }
+    }
+    return false;
+}
+bool monsterAttack() {
+    int monAttackPercentage = rand() % 100;
+    if (monAttackPercentage >= 60) {
+        return true;
+    }
+    return false;
+}
+int x = 0;
+bool combat() {
+    while (x == 0) {
+        int choice;
+        cout << "Press 1 to light attack or press 2 to heavy attack" << endl;
+        cout << "Your HP: " << currentHealth << endl;
+        cout << "Monster HP: " << enemy_CurrentHealth << endl;
+        cin >> choice;
+        if (attack(choice) == true) {
+            enemy_CurrentHealth = enemy_CurrentHealth - enemy_DamageTaken;
+            cout << "You hit the monster dealing 15 damage" << endl;
+
+        }
+        else {
+            cout << "You miss, fool." << endl;
+        }
+
+        if (monsterAttack() == true) {
+            currentHealth = currentHealth - enemy_DamageDone;
+            cout << "The monster does 10 damage to you. " << endl;
+        }
+        else {
+            cout << "The monster misses you, stupid monsters." << endl;
+        }
+        if (currentHealth <= 0) {
+            x = x + 1;
+        }
+        if (enemy_CurrentHealth <= 0) {
+            x = x + 1;
+        }
+
+    }
+    if (currentHealth <= 0) {
+        return false;
+
+    }
+    if (currentHealth > 0) {
+        return true;
+    }
+}
+int round_Victory()
+{
+    int num, odds, randscore;
+    score = score + 25;
+    cout << "Would you like to search the room for extra points before you continue?" << endl;
+    cout << "Press 1 to search or 2 to continue" << endl;
+    cin >> num;
+    odds = rand() % 4 + 1;
+    if (num == 1)
+    {
+        odds = rand() % 2 + 0;
+        if (odds == 1)
+        {
+            randscore = rand() % 50 + 1;
+            score = randscore + score;
+            cout << "You found " << randscore << endl;
+        };
+        if (odds == 2)
+        {
+            cout << "You didn't find anything :(" << endl;
+        }
+
+
+    };
+    if (num == 2)
+    {
+        cout << "You went onwards!!!" << endl;
+        score = score + 10;
+    }
+    return 0;
+};
+
+int Won_Game()
+{
+    if (int enemy_CurrentHealth = 0)
+        cout << "You have beaten the final boss!!" << endl;
+    cout << "Congratulations you have won the game!!" << endl;
+    score = score + 100;
+    cout << "Your best score is " << score << "!" << endl;
+    cout << "Play again and try to beat your score!!" << endl;
+    return 0;
+
+}
+Menu::Menu() //Constructor
+{
+    this->inGame = false;
+    this->exitGame = false;
+}
+
+void Menu::main_menu()
+{
+    char c;
+    int choice = 2;
+    system("CLS");
+    exitGame = false;
+    while (inGame == false && exitGame == false)
+    {
+        SetConsoleTextAttribute(hConsole, 10);
+        coordinates(16, 3);
+        cout << "####### ####### #     # ####### #     # ####### #     # ####### #     #  ######  #######  ";
+        coordinates(16, 4);
+        cout << "   #    #        #   #     #    #     # #       ##    #    #    #     #  #     # #       ";
+        coordinates(16, 5);
+        cout << "   #    #         # #      #    #     # #       # #   #    #    #     #  #     # #      ";
+        coordinates(16, 6);
+        cout << "   #    #####      #       #    #     # #####   #  #  #    #    #     #  ######  #####  ";           //Creating the title for the game in ASCII
+        coordinates(16, 7);
+        cout << "   #    #         # #      #     #   #  #       #   # #    #    #     #  #   #   #     ";
+        coordinates(16, 8);
+        cout << "   #    #        #   #     #      # #   #       #    ##    #    #     #  #    #  #     ";
+        coordinates(16, 9);
+        cout << "   #    ####### #     #    #       #    ####### #     #    #     #####   #     # ####### ";
+        coordinates(16, 10);
+        cout << "----------------------------------------------------------------------------------------- ";
+
+        coordinates(52, 15);
+        cout << " START ";
+        coordinates(52, 17);
+        cout << "COMMANDS  ";
+        coordinates(52, 19);
+        cout << "CREDITS ";
+        coordinates(52, 21);
+        cout << " QUIT ";
+        while (c != char(13))
+        {
+            SetConsoleTextAttribute(hConsole, 15);
+            coordinates(50, 15 + choice);
+            cout << ">";
+            coordinates(61, 15 + choice);
+            cout << "<";
+            coordinates(0, 0); // Reset the coordinates to can moving the "<" and ">" to our desire option
+            c = getch(); //Waits for a key from the user to be read, in our case "S" or "W"
+            coordinates(49, 15 + choice);
+            cout << "  ";
+            coordinates(60, 15 + choice);
+            cout << "  ";
+            if (c == 's') //Press S to scroll down into main menu
+            {
+                if (choice < 6)
+                {
+                    choice = choice + 2;
+                }
+            }
+            if (c == 'w') ////Press W to scroll up into main menu
+            {
+                if (choice > 0)
+                {
+                    choice = choice - 2;
+                }
+            }
+        }
+        if (choice == 0)
+        {
+            inGame = true;
+            main();
+        }
+        if (choice == 2)
+        {
+            commands();
+
+        }
+        if (choice == 4)
+        {
+            credits();
+        }
+        if (choice == 6)
+        {
+            inGame = false;
+            exitGame = true;
+            coordinates(90, 27);
+            SetConsoleTextAttribute(hConsole, 10);
+            cout << "Exiting the game... ";
+            Sleep(1000);
+        }
+        choice = 2;
+        c = ' ';
+        system("CLS");
+    }
+}
+int main()
+{
+    //Welcome message 
+    cout << "Welcome noble one, through this dungeon lies what you seek." << endl;
+    cout << "Your journey will be perilous!" << endl;
+    cout << "And the path may seem bleak " << endl;
+    cout << "But go forth and be victorious!" << endl;
+    cout << "Press Enter to Continue";
+    cin.ignore();
+    //Stage 1 
+
+    cout << "-------------------------------------------------Stage 1: The beginning-------------------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                         Monster  :O                                    " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "               Player ;)                                                                                                " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    enemy_CurrentHealth = 100;
+    bool combatResult = combat();
+    if (combatResult == true) {
+        cout << "You beat the Monster." << endl;
+        score = score + 25;
+    }
+    if (combatResult == false) {
+        cout << "You run from the monster, coward!" << endl;
+        score = score - 25;
+    }
+    round_Victory();
+
+    //Stage 2 
+    cout << "-------------------------------------------------Stage 2: The fun's only just begun ------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                         Monster    0                                   " << endl;
+    cout << "                                                                                  (:::)                                 " << endl;
+    cout << "               Player ;)                                                            _                                   " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    enemy_CurrentHealth = 100;
+    bool combatResult2 = combat();
+    if (combatResult2 == true) {
+        cout << "You beat the Monster." << endl;
+        score = score + 25;
+    }
+    if (combatResult == false) {
+        cout << "You run from the monster, coward!" << endl;
+        score = score - 25;
+    }
+    round_Victory();
+    
+    //Stage 3
+    cout << "-------------------------------------------------Stage 3: The Rising challenge ------------------------------------------" << endl;
+    //cout << stageDesc() << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                     0                                  " << endl;
+    cout << "                                                                         Monster   <:_:>                                " << endl;
+    cout << "                                                                                     _                                  " << endl;
+    cout << "               Player ;)                                                                                                " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    cout << "                                                                                                                        " << endl;
+    enemy_CurrentHealth = 100;
+    bool combatResult3 = combat();
+    if (combatResult3 == true) {
+        cout << "You beat the Monster." << endl;
+        score = score + 25;
+    }
+    if (combatResult3 == false) {
+        cout << "You run from the monster, coward!" << endl;
+        score = score - 25;
+    }
+    Won_Game();
+    cin.ignore();
+
+    return 0;
+
+}
