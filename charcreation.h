@@ -12,7 +12,7 @@ int main()
 
 // There will be random rolls incorporated for the final project
 
-
+void CharSelection(){
 string characterName;
 cout << "What would you like your characters name to be?:";
 cin >> characterName;
@@ -32,6 +32,7 @@ string sex;
 cout << "What sex is your character?:";
 cin >> sex;
 cout << "Your characters height is: " << sex;
+}
 
 class CharacterCreation {
 public:
