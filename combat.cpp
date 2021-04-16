@@ -32,9 +32,11 @@ bool monsterAttack() {
 	return false;
 }
 bool combat() {
-	while (currentHealth != 0 || enemy_CurrentHealth != 0) {
+	while (currentHealth >= 0 || enemy_CurrentHealth >= 0) {
 		int choice;
 		cout << "Press 1 to light attack or press 2 to heavy attack" << endl;
+		cout << "Your HP: "<< currentHealth << endl;
+		cout << "Monster HP: " << enemy_CurrentHealth << endl;
 		cin >> choice;
 		if (attack(choice) == true) {
 			enemy_CurrentHealth = enemy_CurrentHealth - enemy_DamageTaken;
@@ -53,13 +55,11 @@ bool combat() {
 			cout << "The monster misses you, stupid monsters." << endl;
 		}
 	}
-	if (currentHealth == 0) {
+	if (currentHealth <= 0) {
 		return false;
+
 	}
 	else {
 		return true;
 	}
-}
-int main() {
-	combat();
 }
